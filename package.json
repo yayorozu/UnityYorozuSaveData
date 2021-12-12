@@ -2,7 +2,7 @@
   "name": "yorozu.save-data",
   "version": "1.0.0",
   "displayName": "Yorozu SaveData",
-  "description": "Save Data Manager",
+  "description": "Save Data Manage tool",
   "unity": "2020.3",
   "keywords": [
     "EditorTool",
