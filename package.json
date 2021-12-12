@@ -1,0 +1,18 @@
+{
+  "name": "yorozu.save-data",
+  "version": "1.0.0",
+  "displayName": "Yorozu SaveData",
+  "description": "Save Data Manager",
+  "unity": "2020.3",
+  "keywords": [
+    "EditorTool",
+    "Yorozu",
+    "SaveData",
+    "PlayerPrefs"
+  ],
+  "author": {
+    "name": "Yorozu",
+    "email": "hatch.tech.eng@gmail.com",
+    "url": "https://github.com/yayorozu"
+  }
+}
