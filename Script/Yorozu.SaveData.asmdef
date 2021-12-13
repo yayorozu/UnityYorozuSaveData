@@ -1,6 +1,6 @@
 {
-    "name": "SaveData",
-    "rootNamespace": "Yorozu",
+    "name": "Yorozu.SaveData",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
