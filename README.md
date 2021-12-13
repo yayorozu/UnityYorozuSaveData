@@ -22,7 +22,7 @@ SaveDataUtility.SetUp(AesIV, AesKey);
 ```cs
 // PlayerPrefs に保存するクラス
 [Serializable]
-public class SaveDataTest1 : SaveDataPrefs
+public class SaveDataTest1 : PrefsSaveData
 {
 	public enum Key
 	{
@@ -33,7 +33,7 @@ public class SaveDataTest1 : SaveDataPrefs
 
 // Andorid以外は Appliction.persistentDataPathにファイルとして保存するクラス
 [Serializable]
-public class SaveDataTest2 : SaveDataFile
+public class SaveDataTest2 : FileSaveData
 {
 	public enum Key
 	{
@@ -55,9 +55,9 @@ var value = test.IntValue(SaveDataTest1.Key.A));
 value = test.IntValue("A"));
 
 // データのセット enum
-test.Save(SaveDataTest1.Key.A, 10);
+test.Set(SaveDataTest1.Key.A, 10);
 // データのセット string
-test.Save("A", 10);
+test.Set("A", 10);
 ```
 
 データの削除

@@ -75,8 +75,8 @@ namespace Yorozu.SaveData
 		/// <summary>
 		/// int を保存
 		/// </summary>
-		public void Save(Enum key, int value, bool save = true) => Save(key.ToString(), value, save);
-		public void Save(string keyString, int value, bool save = true)
+		public void Set(Enum key, int value, bool save = true) => Set(key.ToString(), value, save);
+		public void Set(string keyString, int value, bool save = true)
 		{
 			var find = _intList.FirstOrDefault(d => d.Key == keyString);
 			if (find != null)
@@ -101,8 +101,8 @@ namespace Yorozu.SaveData
 		/// <summary>
 		/// string を保存
 		/// </summary>
-		public void Save(Enum key, string value, bool save = true) => Save(key.ToString(), value, save);
-		public void Save(string key, string value, bool save = true)
+		public void Set(Enum key, string value, bool save = true) => Set(key.ToString(), value, save);
+		public void Set(string key, string value, bool save = true)
 		{
 			var find = _stringList.FirstOrDefault(d => d.Key == key);
 			if (find != null)
@@ -124,8 +124,8 @@ namespace Yorozu.SaveData
 		/// <summary>
 		/// bool を保存
 		/// </summary>
-		public void Save(Enum key, bool value, bool save = true) => Save(key.ToString(), value, save);
-		public void Save(string keyString, bool value, bool save = true)
+		public void Set(Enum key, bool value, bool save = true) => Set(key.ToString(), value, save);
+		public void Set(string keyString, bool value, bool save = true)
 		{
 			var find = _boolList.FirstOrDefault(d => d.Key == keyString);
 			if (find != null)
@@ -151,23 +151,5 @@ namespace Yorozu.SaveData
 		{
 			SaveDataUtility.Save(this);
 		}
-	}
-
-	/// <summary>
-	/// Prefs に保存するデータ
-	/// </summary>
-	[Serializable]
-	public abstract class SaveDataPrefs : SaveDataBase
-	{
-		protected override SaveDataDestination destination => SaveDataDestination.PlayerPrefs;
-	}
-
-	/// <summary>
-	/// File に保存するデータ
-	/// </summary>
-	[Serializable]
-	public abstract class SaveDataFile : SaveDataBase
-	{
-		protected override SaveDataDestination destination => SaveDataDestination.File;
 	}
 }

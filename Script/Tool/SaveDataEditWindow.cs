@@ -146,21 +146,21 @@ namespace Yorozu.SaveData
 				var temp = intValue;
 				temp = EditorGUILayout.IntField(key, temp);
 				if (temp != intValue)
-					instance.Save(key, temp, false);
+					instance.Set(key, temp, false);
 			}
 			else if (v is string stringValue)
 			{
 				var temp = stringValue;
 				temp = EditorGUILayout.TextField(key, temp);
 				if (temp != stringValue)
-					instance.Save(key, temp, false);
+					instance.Set(key, temp, false);
 			}
 			else if (v is bool boolValue)
 			{
 				var temp = boolValue;
 				temp = EditorGUILayout.Toggle(key, temp);
 				if (temp != boolValue)
-					instance.Save(key, temp, false);
+					instance.Set(key, temp, false);
 			}
 		}
 
