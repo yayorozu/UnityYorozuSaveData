@@ -1,6 +1,5 @@
-# UnityYorozuSaveData
+# UnitySaveData
 永続データを管理するライブラリ
-
 
 ### 使い方
 
