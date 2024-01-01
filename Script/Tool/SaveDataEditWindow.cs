@@ -10,16 +10,31 @@ namespace Yorozu.SaveData
 {
 	public class SaveDataEditWindow : EditorWindow
 	{
+		[MenuItem("Tools/SaveData/Viewer")]
+		private static void ShowWindow()
+		{
+			var window = GetWindow<SaveDataEditWindow>();
+			window.titleContent = new GUIContent("SaveDataViewer");
+			window.Show();
+		}
+
+		[MenuItem("Tools/SaveData/Delete PlayerPrefs")]
+		private static void DeleteSaveData()
+		{
+			PlayerPrefs.DeleteAll();
+		}
+		
 		private BindingFlags Flags => BindingFlags.Public |
 		                              BindingFlags.Instance |
 		                              BindingFlags.NonPublic;
 
+		private Vector2 _scrollPosition;
+		
 		private void OnGUI()
 		{
 			if (!Application.isPlaying)
 			{
 				EditorGUILayout.HelpBox("Editor Play And Call SaveDataUtility.SetUp", MessageType.Info);
-
 				return;
 			}
 
@@ -27,20 +42,15 @@ namespace Yorozu.SaveData
 			if (data.Count <= 0)
 			{
 				EditorGUILayout.LabelField("SaveData Not Found");
-
 				return;
 			}
 
-			foreach (var d in data)
-				DrawData(d);
-		}
-
-		[MenuItem("Tools/SaveDataViewer")]
-		private static void ShowWindow()
-		{
-			var window = GetWindow<SaveDataEditWindow>();
-			window.titleContent = new GUIContent("SaveDataViewer");
-			window.Show();
+			using (var scroll = new EditorGUILayout.ScrollViewScope(_scrollPosition))
+			{
+				_scrollPosition = scroll.scrollPosition;
+				foreach (var d in data)
+					DrawData(d);
+			}
 		}
 
 		private void DrawData(SaveDataBase instance)
