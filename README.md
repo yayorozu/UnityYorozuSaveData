@@ -16,7 +16,7 @@ const string AesKey = @"ABCDEFG";
 SaveDataUtility.SetUp(AesIV, AesKey);
 ```
 
-保存するクラスの作成
+#### 保存するクラスの作成
 
 ```cs
 // PlayerPrefs に保存するクラス
@@ -42,7 +42,7 @@ public class SaveDataTest2 : FileSaveData
 }
 ```
 
-データの読み込み
+#### データの読み込み
 
 int, bool, string は Key を指定して基底クラスに保存する処理が書いてるためクラスを作成するだけでよい
 
@@ -59,7 +59,7 @@ test.Set(SaveDataTest1.Key.A, 10);
 test.Set("A", 10);
 ```
 
-データの削除
+#### データの削除
 
 ```
 // 指定したクラスのデータを削除
@@ -69,8 +69,13 @@ SaveDataUtility.Delete<SaveDataTest1>();
 SaveDataUtility.DeleteAll();
 ````
 
-
-可視化
+# 可視化
 
 `Tools/SaveDataViewer` より Editor で保存してあるデータの中身を見れたり、変更できるツールを利用できる
+
+# ライセンス
+本プロジェクトは MIT License の下でライセンスされています。<br>
+詳細については、LICENSE ファイルをご覧ください。
+
+
 
